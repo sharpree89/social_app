@@ -1,0 +1,17 @@
+<div ng-controller="editProfileController">
+  <div class="row">
+    <input class="button-primary" type="submit" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+     ngf-accept="'image/*'" ngf-resize="{width: 100, height: 100}" value="Upload a Profile Picture">
+  </div>
+  <div class="row">
+    <p>Update Username: <input type="text" ng-model="user.username">
+    <input class="button-primary" type="submit" ng-click="editUsername()" value="Update"></p>
+  </div>
+  <div class="row">
+    <p>Update Bio: <input type="text" ng-model="user.bio">
+    <input class="button-primary" type="submit" ng-click="editBio()" value="Update"></p>
+  </div>
+</div>
+<div ng-controller="navController">
+  <button ng-click="logOut()">Log Out</button>
+</div>

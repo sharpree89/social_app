@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Angular -->
+  <script src='/angular/angular.js'></script>
+  <script src='/angular-route/angular-route.js'></script>
+  <!-- Partials -->
+  <script src='/assets/app.js'></script>
+  <!-- Controllers -->
+  <script src='assets/controllers/usercontroller.js'></script>
+  <script src='assets/controllers/navcontroller.js'></script>
+  <script src='assets/controllers/editprofilecontroller.js'></script>
+  <script src='assets/controllers/postscontroller.js'></script>
+  <!-- Libraries -->
+  <script src='/ng-file-upload/dist/ng-file-upload.js'></script>
+  <script src='/ng-file-upload/dist/ng-file-upload-all.js'></script>
+  <script src='/ng-file-upload/dist/ng-file-upload-shim.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" media="screen">
+  <title>Social App</title>
+</head>
+<body>
+  <center>
+    <div id="navBar" ng-controller="navController" ng-show="!loggedIn">
+      <form name="loginForm">
+        Email: <input type="email" placeholder="test@mailbox.com" id="email" ng-model="login.email">
+        Password: <input type="password" placeholder="Password must be >= 8 chars" id="password" ng-model="login.password">
+        <input class="button-primary" ng-click="loginUser()" type="submit" value="Log In">
+      </form>
+      <h4>New To Social App?</h4>
+      <form name="registerButton" action="#/register">
+        <input class="button-primary" type="submit" value="Sign Up Now">
+      </form>
+    </div>
+    <div id="showWhenLoggedIn" ng-controller="navController" ng-show="loggedIn">
+      <hr>
+      <p>For logged in eyes only</p>
+      <a href="#/edit-profile"><button>Edit Profile</button></a>
+      <input class="button-primary" type="submit" ng-click="logOut()" value="Log Out">
+      <hr>
+    </div>
+    <div ng-view=""></div>
+  </center>
+</body>
+</html>

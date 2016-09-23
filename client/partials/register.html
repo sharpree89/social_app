@@ -1,0 +1,19 @@
+<h3>Register</h3>
+<form name="registerForm">
+  <div id="registerForm">
+      <p><div class="four columns">
+          First Name: <input class="u-full-width" type="text" placeholder="First Name" id="firstName" ng-model="newUser.firstName">
+      </div></p>
+      <p><div class="four columns">
+          Last Name: <input class="u-full-width" type="text" placeholder="Last Name" id="lastName" ng-model="newUser.lastName">
+      </div><p>
+      <p><div class="four columns">
+          Email: <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="email" ng-model="newUser.email">
+      </div><p>
+      <p><div class="four columns">
+          Password: <input class="u-full-width" type="password" placeholder="Password must be at least 8 chars" id="password" ng-model="newUser.password">
+      </div></p>
+    </div>
+    <br>
+    <p><input class="button-primary" ng-click="registerUser()" type="submit" value="Register!"><p>
+</form>

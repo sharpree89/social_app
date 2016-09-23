@@ -1,0 +1,26 @@
+<div ng-controller="postsController">
+  <textarea class="u-full-width" placeholder="What's on your mind? (Press enter to submit)" ng-model="post" ng-keypress="sendPost($event)" required></textarea>
+  <table class="u-full-width">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="post in posts">
+        <td>
+          {{post.user}}
+          <image ng-src="{{post.userImage}}">
+        </td>
+        <td>
+          <i>{{post.date | date: 'MM/dd/yyyy hh:mm'}}</i>
+          <br>
+          <p>{{post.post}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

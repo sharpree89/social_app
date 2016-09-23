@@ -1,0 +1,7 @@
+<div ng-controller="navController" ng-show="!loggedIn">
+  <form name="loginForm">
+    Email: <input type="email" placeholder="test@mailbox.com" id="email" ng-model="login.email">
+    Password: <input type="password" placeholder="Password must be >= 8 chars" id="password" ng-model="login.password">
+    <input class="button-primary" ng-click="loginUser()" type="submit" value="Log In">
+  </form>
+</div>
