@@ -3,7 +3,7 @@ var express = require("express")
     bp = require("body-parser")
     app = express()
     multiPart = require("connect-multiparty")
-    multiPartMiddleware = multiPart()
+    multiPartMiddleware = multiPart();
 
 app.use(bp.json());
 app.use(multiPartMiddleware);
@@ -13,12 +13,12 @@ app.use(express.static(path.join(__dirname, './node_modules')));
 app.use(express.static(path.join(__dirname, '.client/uploads')));
 
 require('./server/config/mongoose.js');
-require(__dirname + '/server/config/routes.js')(app)
+require(__dirname + '/server/config/routes.js')(app);
 
 //Server-Side Controllers//
-authController = require('./server/controllers/authcontroller.js')
-profileController = require('./server/controllers/profilecontroller.js')
-postsController = require('./server/controllers/postscontroller.js')
+authController = require('./server/controllers/authcontroller.js');
+profileController = require('./server/controllers/profilecontroller.js');
+postsController = require('./server/controllers/postscontroller.js');
 
 app.get('/', function(req, res) {
   res.sendfile('./client/fixedview.html');

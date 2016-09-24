@@ -3,7 +3,7 @@ app.controller('postsController', ['$scope', '$http', '$interval',
 
      console.log('********** you are in the postsController **********');
 
-     if(localStorage['User-Data'] != undefined) {
+     if(localStorage['User-Data'] !== undefined) {
        $scope.user = JSON.parse(localStorage['User-Data']);
        console.log($scope.user);
      }
@@ -21,6 +21,8 @@ app.controller('postsController', ['$scope', '$http', '$interval',
 
          $http.post('/posts', request).success(function(response) {
            console.log('********** sending post to server **********');
+           console.log(response);
+           $scope.posts = response;
          }).error(function(error) {
            console.log('********** something went wrong in postsController sendPost function **********');
          });
