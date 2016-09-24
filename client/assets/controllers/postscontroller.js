@@ -29,17 +29,68 @@ app.controller('postsController', ['$scope', '$http', '$interval',
       }
     };
 
-    //  $scope.getPosts = function(initial) {
-     //
-    //    $http.get('/get').success(function(response) {
-    //      if(initial) {
-    //        $scope.posts = response;
-    //      }
-    //      else{
-    //        $scope.incomingPosts = response;
-    //      }
-    //    })
-    //  };
-    //  //Init//
-    //  getPosts(true);
+     $scope.getPosts = function(initial) {
+
+       $http.get('/get-posts').success(function(response) {
+         if(initial) {
+           $scope.posts = response;
+         }
+         else{
+           if(response.length > $scope.posts.length){
+
+           }
+           $scope.incomingPosts = response;
+         }
+       })
+     };
+
+     $interval(function(){
+
+       $scope.getPosts(false);
+
+       if($scope.incomingPosts) {
+         $scope.difference = $scope.incomingPosts.length - $scope.posts.length;
+       }
+
+       console.log('this is working');
+
+     }, 5000);
+
+     $scope.setNewPosts = function() {
+       $scope.posts = angular.copy($scope.incomingPosts);
+       $scope.incomingPosts = undefined;
+     }
+
+     $scope.getPosts(true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }]);

@@ -19,17 +19,17 @@ module.exports = {
         res.json(allPosts);
       }
     });
+  },
+
+  getPosts: function(req, res) {
+    Post.find({})
+      .sort({date: -1}).exec(function(err, allPosts) {
+        if(err) {
+          res.error(err);
+        }
+        else{
+          res.json(allPosts);
+        }
+      })
   }
-  //
-  // getPosts: function(req, res) {
-  //   Post.find({})
-  //     .sort({date: -1}).exec(function(err, allPosts) {
-  //       if(err) {
-  //         res.error(err);
-  //       }
-  //       else{
-  //         res.json(allPosts);
-  //       }
-  //     })
-  // }
 }

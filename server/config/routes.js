@@ -15,5 +15,5 @@ module.exports = function(app) {
 
   //Posts//
   app.post('/posts', postsController.sendPost);
-  // app.get('/get', postsController.getPosts);
+  app.get('/get-posts', postsController.getPosts);
 }

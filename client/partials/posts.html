@@ -6,6 +6,9 @@
             required>
   </textarea>
   <table>
+    <tr>
+      <a ng-click="setNewPosts()" ng-if="incomingPosts.length > 0">{{difference}} new posts</a>
+    </tr>
     <tr ng-repeat="post in posts">
       <td>
         <span ng-class-odd="'odd'" ng-class-even="'even'">
